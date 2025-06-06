@@ -171,9 +171,13 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     return ConversationHandler.END
 
 def main():
-    import os
     TOKEN = "7837078905:AAHFan32TZaH14AzZ_JCHTHmhUg3IUHjY6E"
     application = ApplicationBuilder().token(TOKEN).build()
+
+    application.add_handler(CommandHandler("start", start))
+
+    # Запуск бота (блокирующий вызов)
+    application.run_polling()
 
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start)],
