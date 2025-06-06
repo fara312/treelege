@@ -539,4 +539,8 @@ TCP/IP-тің деректерді жіберу процессіндегі не�
 - Safari
 + Google Chrome
 - Mozilla Firefox
+<<<<<<< HEAD
 - Microsoft Edge
+=======
+- Microsoft EdgeE
+>>>>>>> 8f892a7 (Initial commit)

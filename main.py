@@ -170,14 +170,12 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Тест отменен. Напишите /start чтобы начать заново.")
     return ConversationHandler.END
 
+
 def main():
     TOKEN = "7837078905:AAHFan32TZaH14AzZ_JCHTHmhUg3IUHjY6E"
     application = ApplicationBuilder().token(TOKEN).build()
 
     application.add_handler(CommandHandler("start", start))
-
-    # Запуск бота (блокирующий вызов)
-    application.run_polling()
 
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start)],
@@ -191,7 +189,10 @@ def main():
     application.add_handler(conv_handler)
     application.add_handler(CallbackQueryHandler(handle_permission))
 
+    # Запуск бота (блокирующий вызов)
     application.run_polling()
+
 
 if __name__ == '__main__':
     main()
+
